@@ -1,4 +1,4 @@
-# CronBot - SMS Verification API
+# OTP-Verifier - SMS Verification API
 
 A high-performance, robust API service written in Go for managing SMS OTP Generation and verification.
 
@@ -16,19 +16,22 @@ A high-performance, robust API service written in Go for managing SMS OTP Genera
 ## Installation & Setup
 
 1. **Clone or Download** The Repository to your Machine.
-2. **Install Dependencies**:
+2. ```bash
+   git clone https://github.com/yuvrajmodz/OTP-Verifier.git
+   ```
+3. **Install Dependencies**:
    Open a Terminal in the Project Directory and Run:
    ```bash
    go mod tidy
    ```
-3. **Run the Application**:
+4. **Run the Application**:
    Start the API server directly using:
    ```bash
    go run main.go
    ```
    *The server will start in Production Mode on `0.0.0.0:5002`.*
 
-4. **Build for Production** (Optional):
+5. **Build for Production** (Optional):
    Compile the code into an executable for deployment:
    ```bash
    go build -o main
