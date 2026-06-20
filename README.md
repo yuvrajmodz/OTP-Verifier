@@ -16,7 +16,7 @@ A high-performance, robust API service written in Go for managing SMS OTP Genera
 ## Installation & Setup
 
 1. **Clone or Download** The Repository to your Machine.
-2. ```bash
+   ```bash
    git clone https://github.com/yuvrajmodz/OTP-Verifier.git
    ```
 3. **Install Dependencies**:
