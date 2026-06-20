@@ -1,13 +1,12 @@
 # CronBot - SMS Verification API
 
-A high-performance, robust API service written in Go for managing SMS OTP (One-Time Password) generation and verification.
+A high-performance, robust API service written in Go for managing SMS OTP Generation and verification.
 
 ## Features
 
-* **High Performance**: Built on top of the fast and minimal [Gin Web Framework](https://gin-gonic.com/).
-* **Proxy Management**: Automatically fetches, tests, and utilizes free proxies in parallel to bypass external API rate limits.
-* **In-Memory Sessions**: Maintains a lightweight, thread-safe, in-memory cache for OTP sessions with automatic Time-To-Live (TTL) cleanup.
-* **Robust Error Handling & Retries**: Includes built-in mechanisms for proxy fallback and request retries.
+* **High Performance**: Built on top of the Fast and Minimal Framework.
+* **In-Memory Sessions**: Maintains a Lightweight, thread-safe, in-memory cache for OTP sessions with automatic Time-To-Live (TTL) Cleanup.
+* **Robust Error Handling & Retries**: Includes Built-in Mechanisms for Proxy Fallback and Request Retries.
 * **Production Ready**: Optimized to run quietly and efficiently in production environments.
 
 ## Requirements
@@ -16,9 +15,9 @@ A high-performance, robust API service written in Go for managing SMS OTP (One-T
 
 ## Installation & Setup
 
-1. **Clone or Download** the repository to your local machine.
+1. **Clone or Download** The Repository to your Machine.
 2. **Install Dependencies**:
-   Open a terminal in the project directory and run:
+   Open a Terminal in the Project Directory and Run:
    ```bash
    go mod tidy
    ```
@@ -32,13 +31,13 @@ A high-performance, robust API service written in Go for managing SMS OTP (One-T
 4. **Build for Production** (Optional):
    Compile the code into an executable for deployment:
    ```bash
-   go build -o cronbot main.go
-   ./cronbot
+   go build -o main
+   ./main
    ```
 
 ## API Usage Guide
 
-The API exposes two primary endpoints to handle the sending and verification of OTPs.
+The API Exposes Two primary endpoints to handle the sending and verification of OTPs.
 
 ### 1. Send OTP
 Initiates an OTP request to a given mobile number.
@@ -50,7 +49,7 @@ Initiates an OTP request to a given mobile number.
 
 **Example Request:**
 ```bash
-curl "http://localhost:5002/send?number=9876543210"
+curl "http://example.com/send?number=9876543210"
 ```
 
 **Example Response:**
@@ -60,7 +59,7 @@ curl "http://localhost:5002/send?number=9876543210"
   "response": "OTP Sent Successfully Via SMS.",
   "status": "success",
   "validity": "10 Minutes",
-  "verify_at": "http://localhost:5002/verify?id=abcdefgh&otp=<OTP_code>"
+  "verify_at": "http://example.com/verify?id=abcdefgh&otp=<OTP_code>"
 }
 ```
 
@@ -75,7 +74,7 @@ Validates the OTP entered by the user against the active session.
 
 **Example Request:**
 ```bash
-curl "http://localhost:5002/verify?id=abcdefgh&otp=123456"
+curl "http://example.com/verify?id=abcdefgh&otp=123456"
 ```
 
 **Example Response:**
@@ -87,8 +86,6 @@ curl "http://localhost:5002/verify?id=abcdefgh&otp=123456"
 }
 ```
 
-## How It Works Internally
+## About Developer
 
-1. **Proxy Rotation**: When a request comes in, the app pulls a fresh list of proxies from `proxyscrape.com`. It tests up to 15 of them concurrently and selects the first one that successfully reaches the upstream provider.
-2. **Session Persistence**: Upon a successful SMS dispatch, a unique 8-character ID is generated and linked to the user's phone number. This session is securely cached in memory and automatically expires and deletes itself after 10 minutes.
-3. **Verification**: During verification, the app seamlessly routes the request through the same active proxy used during dispatch to maintain session consistency. If the proxy dies, it attempts to fetch a replacement immediately.
+**Engineered By**: [Nactire](https://t.me/lieqy) && [NacDevs](https://t.me/NacDevs)
